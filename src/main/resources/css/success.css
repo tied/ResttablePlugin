@@ -1,0 +1,64 @@
+.contenttab {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    color: #333;
+    display: block;
+    font-family: arial, sans-serif;
+    position: relative;
+    width: 80%;
+    margin: 5%;
+}
+
+.contenttab input[name="sections"] {
+    left: -9999px;
+    position: absolute;
+    top: -9999px;
+}
+
+.contenttab section {
+    display: block;
+}
+
+.contenttab section label {
+    background: #ccc;
+    border: 1px solid #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 15px 20px;
+    position: relative;
+    width: 180px;
+    z-index: 100;
+}
+
+.contenttab section article {
+    display: none;
+    left: 230px;
+    min-width: 300px;
+    min-height: 165px;
+    padding: 0 0 0 21px;
+    position: absolute;
+    top: 0;
+}
+
+.contenttab section article:after {
+    background-color: #ccc;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: -229px;
+    position: absolute;
+    top: 0;
+    width: 220px;
+    z-index: 1;
+}
+
+.contenttab input[name="sections"]:checked + label {
+    background: #eee;
+    color: #bbb;
+}
+
+.contenttab input[name="sections"]:checked ~ article {
+    display: block;
+}

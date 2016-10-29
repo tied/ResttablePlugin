@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+    <meta name="decorator" content="atl.general"/>
+    <meta charset="utf-8">
+    $webResourceManager.requireResourcesForContext("resttab-resources")
+</head>
+<body>
+<div class="contenttab">
+    <section id="section1">
+        <input type="radio" name="sections" id="option1" checked>
+        <label for="option1">A</label>
+        <article>
+            <h2>Tab 1</h2>
+            <p>Some text1</p>
+        </article>
+    </section>
+    <section id="section2">
+        <input type="radio" name="sections" id="option2">
+        <label for="option2">B</label>
+        <article>
+            <form action="/secure/action!add.jspa">
+                <input type="text" name="name"/>
+                <input type="submit" value="OK"/>
+            </form>
+            <table>
+                <thead>
+                <th>Наименование</th>
+                <th>Описание</th>
+                <th>Дата создания</th>
+                </thead>
+                <tbody>
+                    #foreach($item in $items)
+                    <tr>
+                        <td>$student.getName()</td>
+                        <td>$student.getDescription()</td>
+                        <td>$student.getCreatedDate()</td>
+                    </tr>
+                    #end
+                </tbody>
+            </table>
+        </article>
+    </section>
+    <section id="section3">
+        <input type="radio" name="sections" id="option3">
+        <label for="option3">C</label>
+        <article>
+            <h2>Tab 3</h2>
+            <p>Some text3</p>
+        </article>
+    </section>
+</div>
+</body>
+</html>
+

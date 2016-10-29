@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+  </plugin-info>
+  <!-- add our i18n resource -->
+  <resource type="i18n" name="i18n" location="RestPlugin"/>
+  <!-- add our web resources -->
+  <web-resource key="RestPlugin-resources" name="RestPlugin Web Resources">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+      <resource type="download" name="success.vm" location="/css/success.vm"/>
+    <context>RestPlugin</context>
+  </web-resource>
+
+  <web-item name="Laboratory Web Item" i18n-name-key="Laboratory Web Item" key="laboratory-web-item" section="system.top.navigation.bar" weight="1000">
+    <description key="The Laboratory Web Item Plugin">The Laboratory Web Item Plugin</description>
+    <label key="Laboratory Web Item"/>
+    <link linkId="laboratory-web-item-link">/secure/LaboratoryWebworkAction.jspa</link>
+  </web-item>
+
+  <webwork1 key="laboratory-webwork" name="Laboratory Webwork" i18n-name-key="Laboratory Webwork">
+    <description key="The Laboratory Webwork Plugin">The Laboratory Webwork Plugin</description>
+    <actions>
+      <action name="com.teamlead.secondtask.visual.LaboratoryWebworkAction" alias="LaboratoryWebworkAction">
+        <view name="success">/templates/laboratory-webwork/success.vm</view>
+        <view name="input">/templates/laboratory-webwork/input.vm</view>
+        <view name="error">/templates/laboratory-webwork/error.vm</view>
+      </action>
+    </actions>
+  </webwork1>
+    <component-import key="ao-service" name="Active Objects service" interface="com.atlassian.activeobjects.external.ActiveObjects">
+        <description>Component to access Active Objects functionality from the plugin</description>
+    </component-import>
+    <ao key="ao-module"><entity>com.teamlead.secondtask.core.IItemEntity</entity></ao>
+    <component key="dao-factory" class="com.teamlead.secondtask.core.DAO.DAOFactory"></component>
+</atlassian-plugin>
